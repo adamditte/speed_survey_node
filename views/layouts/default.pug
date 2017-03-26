@@ -1,0 +1,76 @@
+extends _master
+
+append head
+    meta(name='google-signin-scope', content='profile email')
+    meta(name='google-signin-client_id', content='945882323663-sp43sd2rpa6av7ec37jro5fd6bvolnl5.apps.googleusercontent.com')
+    append styles
+        link(href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', rel='stylesheet')
+        link(href='/css/scrolling-nav.css', rel='stylesheet')
+        link(rel='stylesheet', href='/css/style.css')
+        |<!--[if lt IE 8]>
+        script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+        script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+        <![endif]-->
+block body
+    input#hidden_state(type='hidden', value='<%=state%>')
+    |  
+    input#contactstate(type='hidden', name='contactstate', value='<%=state%>')
+    |  
+    input#refreshState(type='hidden', value='<%=login_refresh%>')
+    nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+      .container
+        .navbar-header.page-scroll
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          |  
+          a.navbar-brand.page-scroll(href='#page-top') Internet Speed Survey
+        .collapse.navbar-collapse.navbar-ex1-collapse
+          ul.nav.navbar-nav
+            li.hidden
+              a.page-scroll(href='#page-top')
+            li
+              a.page-scroll(href='#about_us') About Us
+            li
+              a.page-scroll(href='#about_you') About You
+            li
+              a.page-scroll(href='#take_our_survey') Take Our Survey
+            li
+              a.page-scroll(href='#speed_test') Test Your Speed
+            li
+              a.page-scroll(href='#contact') Contact
+          ul.nav.navbar-nav.navbar-right
+            li#dropdown.nav.navbar-nav.navbar-right
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                #welcome
+                  b Login
+                  span.caret
+              ul#login-dp.dropdown-menu
+                li
+                  .row
+                    .col-md-12
+                      | Login via
+                      br
+                      fb:login-button(scope='email', onlogin='window.location.reload(true);') Connect with Facebook
+                      #status
+                      .g-signin2(data-onsuccess='onSignIn')
+                      |  or
+                      form#login-nav.form(role='form', method='post', action='/login', accept-charset='UTF-8')
+                        p#emailCheck Login with email:
+                        |  
+                        input#user_defined_email(name='user_defined_email', type='text')
+                        p#enterPassword Password:
+                        |  
+                        input#user_password(name='user_password', type='text')
+                        #errorMessage(style='color: red')
+                        |  
+                        input#wrongPassword(name='wrongPassword', type='label', value='test')
+                        |  
+                        input#login(type='submit', onclick='loginError()', value='Login')
+                      .bottom.text-center
+                        | New here ? 
+                        a.page-scroll(onclick='create(); return false;', href='#create_account')
+                          b Join Us
+    block content

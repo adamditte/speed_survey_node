@@ -1,0 +1,546 @@
+doctype html
+html(lang='en')
+  head
+    title Internet Speed Test
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='google-signin-scope', content='profile email')
+    meta(name='google-signin-client_id', content='945882323663-sp43sd2rpa6av7ec37jro5fd6bvolnl5.apps.googleusercontent.com')
+    link(href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', rel='stylesheet')
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/scrolling-nav.css', rel='stylesheet')
+    link(rel='stylesheet', href='/css/style.css')
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+  body#page-top(data-spy='scroll', data-target='.navbar-fixed-top')
+    input#hidden_state(type='hidden', value='<%=state%>')
+    |  
+    input#contactstate(type='hidden', name='contactstate', value='<%=state%>')
+    |  
+    input#refreshState(type='hidden', value='<%=login_refresh%>')
+    nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+      .container
+        .navbar-header.page-scroll
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          |  
+          a.navbar-brand.page-scroll(href='#page-top') Internet Speed Survey
+        .collapse.navbar-collapse.navbar-ex1-collapse
+          ul.nav.navbar-nav
+            li.hidden
+              a.page-scroll(href='#page-top')
+            li
+              a.page-scroll(href='#about_us') About Us
+            li
+              a.page-scroll(href='#about_you') About You
+            li
+              a.page-scroll(href='#take_our_survey') Take Our Survey
+            li
+              a.page-scroll(href='#speed_test') Test Your Speed
+            li
+              a.page-scroll(href='#contact') Contact
+          ul.nav.navbar-nav.navbar-right
+            li#dropdown.nav.navbar-nav.navbar-right
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                #welcome
+                  b Login
+                  span.caret
+              ul#login-dp.dropdown-menu
+                li
+                  .row
+                    .col-md-12
+                      | Login via
+                      br
+                      fb:login-button(scope='email', onlogin='window.location.reload(true);') Connect with Facebook
+                      #status
+                      .g-signin2(data-onsuccess='onSignIn')
+                      |  or
+                      form#login-nav.form(role='form', method='post', action='/login', accept-charset='UTF-8')
+                        p#emailCheck Login with email:
+                        |  
+                        input#user_defined_email(name='user_defined_email', type='text')
+                        p#enterPassword Password:
+                        |  
+                        input#user_password(name='user_password', type='text')
+                        #errorMessage(style='color: red')
+                        |  
+                        input#wrongPassword(name='wrongPassword', type='label', value='test')
+                        |  
+                        input#login(type='submit', onclick='loginError()', value='Login')
+                      .bottom.text-center
+                        | New here ? 
+                        a.page-scroll(onclick='create(); return false;', href='#create_account')
+                          b Join Us
+    section#intro.intro-section
+      .container
+        .row
+          .col-lg-12
+            h1 Internet Speed Survey
+            p
+              | What you are about to witness is a Mined Minds Foundation Charleston class of 2016 production.
+            |  
+            a.btn.btn-default.page-scroll(href='#about_us') Start here or just scroll down!
+      br
+      br
+      br
+      |  
+      a(href='http://www.suddenlink.com/')
+        img(src='img/suddenlinklogo.png', alt='Suddenlink', style='width:264px; height:45px; float: left; margin-left: 330px', ;='', position:='', absolute;='', top:='', -99999px;='', left:='', width='1 ', height='1"')
+      br
+      br
+      .row
+        .bullet-icon.small-2.show-for-small-only.columns
+        .section-header.small-10.medium-12.large-12.columns
+          h3  Suddenlink Internet. Don&apos;t suffer the buffer.
+          |  
+          span.section-subheader Speed to power all of your devices.
+        .section-cta.small-10.small-offset-2.medium-12.large-12.medium-offset-0.large-offset-0.columns
+          a(href='http://www.suddenlink.com/internet') Learn more
+        .section-image.medium-12.columns
+          img(src='http://www.suddenlink.com/sites/default/files/Home/homepage_suffer_9-10.png', width='205', height='97', alt='Dont Suffer the Buffer')
+        p(style='clear: both;')
+    section#about_us.about_us-section
+      .container
+        .row
+          .col-lg-12
+            h1 About Us
+             h3
+             | Pennsylvania High Speed Internet Coalition<br>Trying to bring high-speed internet to you!
+
+                        p
+                            . The brief time it takes you to take this survey and internet speed test <br>could help us bring better
+                                connections and faster speeds to your home.
+                                <br>Please take 2 minutes of your time to complete the survey and speed test.
+                                <br>Login to Google or Facebook in the upper righthand corner to view the page.
+                                <br><br><br><b>Why must I login to take the survey?</b>
+                                <br>We do this to avoid duplicates, bots, and spam, as well as to bring more accurate <br>and
+                                useful results. Login is for human verification only and you will not be sent any <br>unwanted
+                                solicitations nor will your information be given out to anyone.
+      div
+        br
+        br
+        div
+          a(href='https://adclick.g.doubleclick.net/pcs/click?xai=AKAOjssKylYYXs0C9oKB_0g7VP6sXZa8a4Og7aIktQiohegDOtw5RVtDG2irzUIdg4dezIWJMQhMhFULsB4atH_LynvA3L5en5U53xXHxXVpJFoOYiwX9l3b-xtF&sig=Cg0ArKJSzFmXGJ6dtQTj&urlfix=1&adurl=https://aax-us-east.amazon-adsystem.com/x/c/QplPXm0zn5eEEvNi4s9b1CgAAAFayPMslAEAAAH1AQHN-78/https://www.sprint.com/landings/unlimited-cell-phone-plans/index.html%3FECID%3DMA:AB:20170101:SPNT_CMS_72882_17_Q1_DACT_GM%7CZMOT:Sprint_Z_Amazon_DT_BAN_OO_CQT_RETAIL_CPM_300x250_HP%7CBTF%7CConquesting_DC:7274_unlimited_revisionQ12017_mob_combat_300x250.jpg%26dclid%3D%25edclid!')
+            img(src='https://s0.2mdn.net/4442943/7274_unlimited_revisionQ12017_amz_300x250.jpg', alt='Advertisement', border='0', width='300', height='250', style='float: right; margin-right: 25px; margin-top: -350px')
+    section#about_you.about_you-section
+      .container
+        .row
+          .col-lg-12
+            a(href='https://www.bitdefender.com/media/html/outstandingproductv2/?cid=ban|c|axm|outstandingproduct')
+              img(src='https://s1.2mdn.net/5165114/BD2017-OC-728x90-EN.gif')
+            br
+            br
+            h1 About You
+            .container
+              form#about_you_form(action='about_you', method='post')
+                ul.form1
+                  li
+                    label *First Name:
+                    |  
+                    input#fname(type='text', name='fname', required='', placeholder=' First Name')
+                  li
+                    label *Last Name:
+                    |  
+                    input#lname(type='text', name='lname', required='', placeholder=' Last Name')
+                  li
+                    label *Address 1:
+                    |  
+                    input#address1(type='text', name='address', required='', placeholder=' Street Address')
+                  li
+                    label Add 2:
+                    |  
+                    input#address2(type='text', name='address2')
+                  li
+                    label *City:
+                    |  
+                    input#city(type='text', name='city', required='', placeholder=' City')
+                  li
+                    label *State:
+                    |  
+                    select(name='state', required='')
+                      option(disabled='', selected='', value='') -- Select One --
+                      option(value='Pennsylvania') Pennsylvania
+                      option(value='West_Virginia') West Virginia
+                  li
+                    label *Zip Code:
+                    |  
+                    input.zipwheel(type='number', name='zip_code', required='', placeholder=' Zip Code')
+                  li
+                    label *E-mail:
+                    |  
+                    input#useremail(type='text', name='email', required='', placeholder=' Email Address')
+                  li.mailregisterabout
+                    p
+                      | Your speedtest data is very important. Can we send you an invitation every week to take the test?
+                    |  
+                    input(type='radio', name='reminder', value='yes', checked='')
+                    |  Yes 
+                    input(type='radio', name='reminder', value='no')
+                    |  No
+                .aboutsub
+                  input#about_you_submit(type='submit', onclick='hide_about_you(event, this);', value='Submit')
+              p#about_you_thanks
+                | Thank you for filling out this information. Please scroll down.
+                br
+                a.btn.btn-default.page-scroll(href='#take_our_survey') or click here to continue!
+              br
+              form(method='post', action='/home')
+                input#hidden_email(name='hidden_email', type='hidden')
+                |  
+                input#clickMe(type='submit', onclick='hide_Email()', hidden='', value='Already Registered')
+    section#create_account.create_account-section
+      .container
+        .row
+          .col-lg-12
+            h1.section-header Create Account
+            .container
+              form#create_account_form.form-horizontal(action='create_account', method='post')
+                .form-group
+                  label.col-sm-2.control-label(for='fname') *First Name:
+                  .col-sm-10
+                    input#fiName.form-control(type='text', name='fname', required='', placeholder=' First Name')
+                .form-group
+                  label.col-sm-2.control-label(for='lname') *Last Name:
+                  .col-sm-10
+                    input#lname.form-control(type='text', name='lname', required='', placeholder=' Last Name')
+                .form-group
+                  label.col-sm-2.control-label(for='address') *Address 1:
+                  .col-sm-10
+                    input#address1.form-control(type='text', name='address', required='', placeholder=' Street Address')
+                .form-group
+                  label.col-sm-2.control-label(for='address2') Add 2:
+                  .col-sm-10
+                    input#address2.form-control(type='text', name='address2')
+                .form-group
+                  label.col-sm-2.control-label(for='city') *City:
+                  .col-sm-10
+                    input#city.form-control(type='text', name='city', required='', placeholder=' City')
+                .form-group
+                  label.col-sm-2.control-label(for='state') *State:
+                  .col-sm-10
+                    select.form-control(name='state', required='')
+                      option(disabled='', selected='', value='') -- Select One --
+                      option(value='Pennsylvania') Pennsylvania
+                      option(value='West_Virginia') West Virginia
+                .form-group
+                  label.col-sm-2.control-label(for='zip_code') *Zip Code:
+                  .col-sm-10
+                    input.form-control(type='number', name='zip_code', required='', placeholder=' Zip Code')
+                .form-group
+                  label.col-sm-2.control-label(for='email') *E-mail:
+                  .col-sm-10
+                    input#useremail.form-control(type='email', name='email', required='', placeholder=' Email Address')
+                .form-group
+                  label.col-sm-2.control-label *Password:
+                  .col-sm-10
+                    input#createPassword.form-control(type='password', name='password', required='', placeholder=' Create a Password', onkeyup='confirm_password()')
+                .form-group
+                  label.col-sm-2.control-label *Confirm:
+                  .col-sm-10
+                    input#confirmPassword.form-control(type='password', name='confirmPassword', required='required', placeholder='Confirm Password', onkeyup='confirm_password()')
+                .form-group
+                  label.control-label.col-sm-offset-2
+                    | Your speedtest data is very important. Can we send you an invitation every week to take the test?
+                  .col-sm-offset-2.col-sm-10
+                    .radio
+                      label
+                        input(type='radio', name='reminder', value='yes', checked='checked')
+                        |  Yes
+                    .radio
+                      label
+                        input(type='radio', name='reminder', value='no')
+                        |  No
+                .form-group
+                  .col-sm-offset-2.col-sm-10
+                    button#account_creation_submit.btn.btn-primary(type='submit', onclick='hide_create_account(event, this);', value='Register') Register
+            br
+            form(method='post', action='/testemail')
+              input#hidden_email(name='hidden_email', type='hidden')
+              |  
+              input#clickMe(type='submit', onclick='hide_Email()', value='Already Registered', hidden='')
+    section#take_our_survey.take_our_survey-section
+      .container
+        .row
+          #takeoursurvey.col-lg-12
+            h1 Take Our Survey
+            .container  
+        p#survey_thanks
+          | Thank you for taking the time to complete the survey!
+          br
+          | Scroll down to take the speedtest or 
+          a.btn.btn-default.page-scroll(href='#speed_test') click here.
+      div
+        a(href='https://www.amazon.com/b/ref=wd_olp_test?node=16284154011')
+          img(src='img/warehousedeals.jpg', style='height: 200px; width: 280px; float: left; margin-right: 10%; margin-left: 35px')
+        |  
+        a(href='http://www.cbssports.com/college-basketball/ncaa-tournament/')
+          img(src='img/march-madness-logo.png', style='width: 146px; height: 44px; float: left; margin-right: 10%')
+        p(style='clear:both;')
+    section#speed_test.speed_test-section
+      .container
+        .row
+          .col-lg-12
+            h1 Test Your Speed
+            #speed_done
+              button#btnStart(type='button', onclick='btnStartClick()') Start Test
+              #msg
+              form#speed_form(action='speed_results', method='post')
+                input#download(name='download', type='hidden')
+                |  
+                input#upload(name='upload', type='hidden')
+                |  
+                input#testserver(name='testserver', type='hidden')
+                |  
+                input#ip_address(name='ip_address', type='hidden')
+                |  
+                input#hostname(name='hostname', type='hidden')
+                |  
+                input#useremail(name='email', type='hidden')
+                |  
+                input#speedsubmit(type='submit', onclick='submit_speed(event, this);', value='Submit Speedtest')
+              br
+              br
+            p#speed_thanks
+              | Thank you for taking the time to take the speedtest. Come back as often as you like. The more speedtests that are run help us help you! We want to know what speeds are like at all hours of the day!
+      p(style='clear: both;')
+    section#contact.contact-section
+      .container
+        .row
+          .col-lg-12
+            h1 Contact
+            .container
+              form#formID(action='/contact', method='POST', name='myForm')
+                h3 Send us a Message
+                table.contacttable
+                  tr
+                    td
+                      ul.contactform
+                        li
+                          label * Name:
+                          |  
+                          input#name(required='', type='text', name='name')
+                        li
+                          label &nbsp; Phone Number:
+                          |  
+                          input#phone.phonewheel(type='number', name='phone')
+                        li
+                          label * Email Address:
+                          |  
+                          input#email(type='text', name='email', required='')
+                        li
+                          label * Reason for contact:
+                          |  
+                          select#reasonS(required='', title='', type='select', name='reason')
+                            option(disabled='', selected='', value='') -- Select One --
+                            option(value='Consulting') Consulting
+                            option(value='Training') Training
+                            option(value='Donation') Donation
+                            option(value='Other') Other
+                    td
+                      ul.contactmessage
+                        li
+                          label * Message:
+                        li
+                          textarea#message.messagetextarea(type='text', name='message', required='')
+                |  
+                input(type='checkbox', name='mailinglist', value='add')
+                |  Add me to the mailing list
+                br
+                |  
+                input(type='submit', value='Submit')
+            .row(style='margin-top:8rem')
+              .col-md-8.col-sm-12
+                iframe(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3061.0034305293584!2d-80.19131478461986!3d39.89655547942891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8835a201c0bcc745%3A0x129dd3d551c9845f!2s145+W+High+St%2C+Waynesburg%2C+PA+15370!5e0!3m2!1sen!2sus!4v1471959228481', width='100%', height='350', frameborder='0', style='border:0; padding-bottom:5rem', allowfullscreen='')
+              .col-md-4
+                h3 Contact Details
+                p
+                  | 145 West High Street
+                  br
+                  | Waynesburg, Pa 15370
+                  br
+                p
+                  i.fa.fa-phone
+                  abbr(title='Phone')
+                  |  (724) 250-8660
+                p
+                  i.fa.fa-envelope-o
+                  abbr(title='Email')
+                  |  
+                  a(href='mailto:info@minedminds.org') info@minedminds.org
+                ul.list-unstyled.list-inline.list-social-icons
+                  li
+                    a(href='https://www.facebook.com/MinedMinds')
+                      i.fa.fa-facebook-square.fa-2x
+                  li(style='margin-left: 0.2vw;')
+                    a(href='https://www.twitter.com/minedminds')
+                      i.fa.fa-twitter-square.fa-2x
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    script(src='https://apis.google.com/js/platform.js', async='', defer='')
+    script(src='//speedof.me/api/api.js', type='text/javascript')
+    script(src='/js/bootstrap.min.js')
+    script(src='/js/jquery.easing.min.js')
+    script(src='/js/scrolling-nav.js')
+    script(src='/js/confirmpass.js')
+    script(src='/js/hideState.js')
+    script(src='/js/clickMe.js')
+    script(src='/js/stateUpdate.js')
+    script(src='/js/logout.js')
+    script(async='', src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
+    script.
+      (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-5636608056299367",
+      enable_page_level_ads: true
+      });
+    script.
+      function hide_Email(e) {
+      var form = $(e.target).closest(form);
+      form.find('#hidden_email').val(form.find('#useremail').val());
+      };
+      hideState();
+      SomApi.account = "SOM58920938b0fa0";
+      SomApi.domainName = "localhost:4567";
+      SomApi.config.sustainTime = 4;
+      SomApi.onTestCompleted = onTestCompleted;
+      SomApi.onError = onError;
+      var msgDiv = document.getElementById("msg");
+      function btnStartClick() {
+      msgDiv.innerHTML = '<h3>Speed test in progress. Please wait...</h3> <img src = "/img/loading.png">';
+      SomApi.startTest();
+      }
+      function onTestCompleted(testResult) {
+      document.getElementById("download").value = testResult.download;
+      document.getElementById("upload").value = testResult.upload;
+      document.getElementById("testserver").value = testResult.testServer;
+      document.getElementById("ip_address").value = testResult.ip_address;
+      document.getElementById("hostname").value = testResult.hostname;
+      document.getElementById("speedsubmit").style.display = "block";
+      msgDiv.innerHTML =
+      "<h3>" +
+      "Download: " + testResult.download + "Mbps <br/>" +
+      "Upload: " + testResult.upload + "Mbps <br/>" +
+      "Latency: " + testResult.latency + "ms <br/>" +
+      "Jitter: " + testResult.jitter + "ms <br/>" +
+      "Test Server: " + testResult.testServer + "<br/>" +
+      "IP: " + testResult.ip_address + "<br/>" +
+      "Hostname: " + testResult.hostname + "<br/>" +
+      "</h3>";
+      }
+      function onError(error) {
+      msgDiv.innerHTML = "Error " + error.code + ": " + error.message;
+      }
+    script.
+      function onSignIn(googleUser) {
+      // Useful data for your client-side scripts:
+      var profile = googleUser.getBasicProfile();
+      console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+      console.log('Full Name: ' + profile.getName());
+      console.log('Given Name: ' + profile.getGivenName());
+      console.log('Family Name: ' + profile.getFamilyName());
+      console.log("Image URL: " + profile.getImageUrl());
+      console.log("Email: " + profile.getEmail());
+      // The ID token you need to pass to your backend:
+      var id_token = googleUser.getAuthResponse().id_token;
+      console.log("ID Token: " + id_token);
+      var title = document.getElementById("welcome");
+      var fullname = profile.getName();
+      fullname = fullname.split(" ");
+      document.getElementById("fname").value = fullname[0];
+      document.getElementById("lname").value = fullname.slice(-1)[0];
+      document.getElementById("useremail").value = profile.getEmail();
+      document.getElementById("hidden_email_survey").value = profile.getEmail();
+      title.innerHTML = '<b><form action="/" method="post"><a id="logoutLink" href="/" onclick="signOut()">Logout</a></form> ' + profile.getGivenName() + '</b><span class="caret"></span>';
+      clickMe();
+      };
+    script.
+      // This is called with the results from from FB.getLoginStatus().
+      function statusChangeCallback(response) {
+      console.log('statusChangeCallback');
+      console.log(response);
+      // The response object is returned with a status field that lets the
+      // app know the current login status of the person.
+      // Full docs on the response object can be found in the documentation
+      // for FB.getLoginStatus().
+      if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+      } else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+      document.getElementById('status').innerHTML = '' +
+      '';
+      document.getElementById('login-dp').style.display = "none";
+      } else {
+      // The person is not logged into Facebook, so we're not sure if
+      // they are logged into this app or not.
+      document.getElementById('status').innerHTML = '' +
+      '';
+      }
+      }
+      // This function is called when someone finishes with the Login
+      // Button.  See the onlogin handler attached to it in the sample
+      // code below.
+      function checkLoginState() {
+      FB.getLoginStatus(function (response) {
+      statusChangeCallback(response);
+      });
+      }
+      window.fbAsyncInit = function () {
+      FB.init({
+      appId: '191034658028306',
+      cookie: true,  // enable cookies to allow the server to access
+      // the session
+      xfbml: true,  // parse social plugins on this page
+      version: 'v2.8' // use graph api version 2.8
+      });
+      // Now that we've initialized the JavaScript SDK, we call
+      // FB.getLoginStatus().  This function gets the state of the
+      // person visiting this page and can return one of three states to
+      // the callback you provide.  They can be:
+      //
+      // 1. Logged into your app ('connected')
+      // 2. Logged into Facebook, but not your app ('not_authorized')
+      // 3. Not logged into Facebook and can't tell if they are logged into
+      //    your app or not.
+      //
+      // These three cases are handled in the callback function.
+      FB.getLoginStatus(function (response) {
+      statusChangeCallback(response);
+      });
+      };
+      // Load the SDK asynchronously
+      (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+      // Here we run a very simple test of the Graph API after login is
+      // successful.  See statusChangeCallback() for when this call is made.
+      function testAPI() {
+      console.log('Welcome!  Fetching your information.... ');
+      FB.api('/me?fields=id, name, email', function (response) {
+      console.log('Successful login for: ' + response.name);
+      var title = document.getElementById("welcome");
+      title.innerHTML = '<b><form action="/" method="post"><a id="logoutLink" href="/" onclick="signOut()">Logout</a></form> ' + response.name + '</b>';
+      document.getElementById('status').innerHTML =
+      'Thanks for logging in, ' + response.name + '!';
+      var fullname = response.name;
+      fullname = fullname.split(" ");
+      document.getElementById('fname').value = fullname[0];
+      document.getElementById("lname").value = fullname.slice(-1)[0];
+      document.getElementById("useremail").value = response.email;
+      document.getElementById("hidden_email_survey").value = response.email;
+      clickMe();
+      });
+      // document.getElementById("useremail").value = profile.getEmail();
+      }
+    script.
+      function user_login() {
+      var hidden_email_survey = $("#user_defined_email").val();
+      };
